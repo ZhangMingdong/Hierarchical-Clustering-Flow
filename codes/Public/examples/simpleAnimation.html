@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<body>
+
+<!-- load the d3.js library -->
+<script src="lib\d3.v4.js"></script>
+
+<script>
+
+    var pos=[
+        {x:100,y:100},
+        {x:600,y:100},
+        {x:600,y:400},
+        {x:100,y:400},
+    ]
+
+    var svg = d3.select("body") // Select the body element
+        .append("svg")          // Append an SVG element to the body
+        .attr("width", 960)     // make it 960 pixels wide
+        .attr("height", 500)    // make it 500 pixels high
+        .append("circle")       // append a cicle to the svg
+        .attr("fill", "blue")   // fill the circle with 'blue'
+        .attr("r", 20)          // set the radius to 10 pixels
+        .attr('cx', 40)         // position the circle at 40 on the x axis
+        .attr('cy', 250)        // position the circle at 250 on the y axis
+    pos.forEach(function(d){
+        svg=svg
+            .transition()           // apply a transition
+            .duration(1000)         // apply it over 4000 milliseconds
+            .attr('cx', d.x)
+            .attr('cy', d.y)
+    })
+
+
+
+    d3.select("body") // Select the body element
+        .append("svg")          // Append an SVG element to the body
+        .attr("width", 960)     // make it 960 pixels wide
+        .attr("height", 500)    // make it 500 pixels high
+        .append("rect")       // append a cicle to the svg
+        .attr("fill", "blue")   // fill the circle with 'blue'
+        .attr("x", 20)          // set the radius to 10 pixels
+        .attr('y', 40)         // position the circle at 40 on the x axis
+        .attr('width', 100)        // position the circle at 250 on the y axis
+        .attr('height', 100)        // position the circle at 250 on the y axis
+        .transition().style('fill', 'red').attr('x', 400).duration(1000)
+        .transition().style('fill', 'yellow').attr('y', 400).duration(1000)
+        .on('start', function () {
+            console.log("stahp, you're making me blush"); })
+        .on('end', function () {
+            console.log("crap, I'm all red now");
+        })
+
+</script>
+</body>

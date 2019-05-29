@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<head>
+    <style>
+        body, html {
+            margin: 0;
+            color: white;
+            font-family: helvetica;
+            margin: auto;
+            width: 100%;
+            height: 100%;
+        }
+
+        icicle-plot {
+            display: block;
+            z-index: 0;
+            overflow: hidden;
+            font-size: 10px;
+            height: 100%;
+            width:100%;
+            float: left;
+        }
+        .arc text {
+            font: 10px sans-serif;
+            text-anchor: middle;
+        }
+
+        .arc path {
+            stroke: #fff;
+        }
+
+
+
+
+    </style>
+    <script src="lib/d3.v5.js"></script>
+    <script src="lib/angular.js"></script>
+    <script src="lib/angular-route.js"></script>
+</head>
+<body  ng-app="myApp"  ng-controller="iciclePlotCtrl">
+<icicle-plot class="icicle-plot" data="donutChartData"></icicle-plot>
+
+<script>
+    var myApp = angular.module('myApp', []);
+
+    myApp.controller('iciclePlotCtrl', function ($window,$scope, $http) {
+        angular.element($window).on('resize', function () { $scope.$apply() });
+        $scope.donutChartData={
+            hierarchy:{}
+        }
+
+        d3.json("data/flare.json").then(function(data) {
+            $scope.donutChartData.hierarchy=d3.hierarchy(data)
+                .sum(function(d){return d.size})
+                .sort(function(a, b){return b.height - a.height || b.value - a.value});
+            $scope.$apply();
+        })
+    });
+
+    myApp.directive('iciclePlot', function () {
+        function link(scope, el, attr) {
+            iciplePlot=function(){
+                var svgWidth=600;
+                var svgHeight=400;
+                var color = d3.scaleOrdinal(d3.schemeCategory10);
+                var format = d3.format(",d");
+                var svgArea=d3.select(el[0]).append("svg");
+                var svg = svgArea.append("g");
+
+
+                scope.$watch(function () {
+                    //    console.log("watching===============svgStreamBG")
+                    svgWidth = el[0].clientWidth;
+                    svgHeight = el[0].clientHeight;
+                    if(svgWidth<100) svgWidth=100;
+                    if(svgHeight<100) svgHeight=100;
+
+                    return svgWidth + svgHeight;
+                }, resize);
+                // response the size-change
+                function resize() {
+                    //console.log("====================resize pyramid=================");
+
+                    redraw();
+                }
+
+                function redraw(){
+                    //console.log("redraw: "+svgWidth+","+svgHeight);
+                    svgArea
+                        .attr("width", svgWidth)
+                        .attr("height", svgHeight)
+
+                    var data=scope.data.hierarchy;
+                    //console.log(data)
+                    if(!data.hasOwnProperty('data')) return
+                    //console.log(data)
+                    function partition(data){
+                        var partition=d3.partition()
+                            .size([svgHeight, svgWidth])
+                            .padding(2)
+                        return partition(data)
+                    }
+
+                    //console.log(data)
+                    var root = partition(data);
+                    //console.log(root)
+
+                    data=root.descendants();
+                    //console.log(data[0])
+
+                    var cell = svg
+                        .selectAll(".node")
+                        .data(data)
+
+                    var newCell=cell
+                        .enter()
+                        .append("g")
+
+                    function setCell(cell){
+                        cell
+                            .attr("class", function(d) { return "node" + (d.children ? " node--internal" : " node--leaf"); })
+                            .attr("transform", function(d) { return "translate(" + d.y0 + "," + d.x0 + ")"; });
+                    }
+
+                    setCell(cell)
+                    setCell(newCell)
+
+                    function setRects(rects){
+                        rects
+                            .attr("width", function(d){return d.y1 - d.y0})
+                            .attr("height", function(d){return d.x1 - d.x0})
+                            .attr("fill-opacity", 0.6)
+                            .attr("fill", function(d){
+                                if (!d.depth) return "#ccc";
+                                while (d.depth > 1) d = d.parent;
+                                return color(d.data.name);
+                            });
+                    }
+                    newCell.append("rect");
+                    var rects=svg.selectAll("rect")
+                        .data(data)
+                    setRects(rects);
+                    //setRects(newRects);
+
+
+
+                    const text = newCell.filter(function(d){return (d.x1 - d.x0) > 16})
+                        .append("text")
+                        .attr("x", 4)
+                        .attr("y", 13);
+
+                    text.append("tspan")
+                        .text(function(d){return d.data.name});
+
+                    text.append("tspan")
+                        .attr("fill-opacity", 0.7)
+                        .text(function(d){return format(d.value)});
+
+                    cell.exit().remove()
+                }
+                redraw();
+                scope.$watch('data.hierarchy', redraw);
+                scope.$watch('data', redraw);
+            }
+            iciplePlot();
+        }
+        return {
+            link: link,
+            restrict: 'E',
+            scope: { data: '=' }
+        };
+    });
+</script>

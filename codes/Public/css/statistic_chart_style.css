@@ -1,0 +1,21 @@
+
+statistic-chart .chart {
+    display: block;
+    margin: auto;
+    font-size: 11px;
+}
+
+statistic-chart rect {
+    stroke: #eee;
+    fill: #aaa;
+    fill-opacity: .8;
+}
+
+statistic-chart rect.parent {
+    cursor: pointer;
+    fill: steelblue;
+}
+
+statistic-chart text {
+    pointer-events: none;
+}

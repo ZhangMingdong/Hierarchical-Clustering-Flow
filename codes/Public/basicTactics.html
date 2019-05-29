@@ -1,0 +1,33 @@
+<!--
+    last designed 2016/09/02
+    for analysis
+-->
+<html>
+<head>
+    <title>Fencing Vis</title>
+    <script src="lib/angular.min.js"></script>
+    <script src="lib/angular-route.min.js"></script>
+    <script src="lib/d3.v4.js" charset="utf-8"></script>
+    <script src="js/basicTacticsCtrl.js"></script>
+    <script src="js/phraseChart.js"></script>
+    <link rel="stylesheet" type="text/css" href="CSS/phrase_chart_style.css">
+    <link rel="stylesheet" type="text/css" href="CSS/bootstrap/bootstrap.min.css">
+</head>
+
+<body ng-app="myApp" ng-controller="basicTacticsCtrl">
+<h2>击剑基本战术演示</h2>
+<button class="btn btn-primary btn-1g" ng-click="attack()">对攻</button>
+<button class="btn btn-primary btn-1g" ng-click="oneStepAttack()">拉开一步</button>
+<button class="btn btn-primary btn-1g" ng-click="threeStepAttack()">长距离进攻</button>
+<button class="btn btn-primary btn-1g" ng-click="reposte()">防守还击</button>
+<button class="btn btn-primary btn-1g" ng-click="retreatAttack()">拉开还击</button>
+<button class="btn btn-primary btn-1g" ng-click="antiReposte()">反还击</button>
+<input type="checkbox" ng-model="basicTacticsData.exchange"><b>Exchange</b><br>
+<br>
+<br>
+<br>
+<phrase-chart style="width:1000px" data="basicTacticsData"></phrase-chart>
+</body>
+</html>
+
+

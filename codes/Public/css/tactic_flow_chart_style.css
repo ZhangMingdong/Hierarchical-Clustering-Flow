@@ -1,0 +1,98 @@
+
+
+
+
+tactic-flow-chart {
+    width: 100%;
+    height: 800px;
+    display: block;
+    z-index: 0;
+    overflow: hidden;
+    font-size: 10px;
+}
+
+tactic-flow-chart .node, .node1, .node2 {
+    fill: white;
+    stroke: black;
+    stroke-width: 1;
+}
+
+tactic-flow-chart .node.simultaneous{
+    fill: gray;
+    opacity:.8;
+}
+
+tactic-flow-chart .node.selected {
+    stroke-width: 3;
+}
+
+tactic-flow-chart .node_left{
+    fill: red;
+    opacity: .5;
+}
+tactic-flow-chart .node_right{
+    fill: blue;
+    opacity: .5;
+}
+
+tactic-flow-chart text {
+    text-anchor: middle;
+    font: 20px sans-serif;
+}
+
+tactic-flow-chart .link {
+    fill: none;
+    stroke: gray;
+    stroke-opacity: .4;
+}
+
+tactic-flow-chart .link:hover {
+    stroke-opacity: .8;
+}
+
+tactic-flow-chart .linktube {
+    fill: none;
+    stroke: gray;
+    stroke-width: 30;
+    stroke-opacity: .05;
+}
+
+tactic-flow-chart .link0,.link1,.link2,.link3,.link4,.link5,.link6,.link7,.link8,.link9 {
+    fill: none;
+    stroke-opacity: .6;
+}
+
+tactic-flow-chart .link2 {
+    fill: none;
+    stroke: red;
+    stroke-opacity: .3;
+}
+
+tactic-flow-chart .linkfocused {
+    fill: none;
+    stroke: black;
+    stroke-opacity: .6;
+}
+
+tactic-flow-chart .linkselected {
+    fill: none;
+    stroke: black;
+    stroke-opacity: .6;
+}
+
+tactic-flow-chart .linkplayer1 {
+    fill: none;
+    stroke: red;
+    stroke-opacity: .3;
+}
+tactic-flow-chart .linkplayer2 {
+    fill: none;
+    stroke: blue;
+    stroke-opacity: .3;
+}
+
+tactic-flow-chart .node_pos, .node_step{
+    fill: red;
+    stroke:black;
+    strock-width:1;
+}

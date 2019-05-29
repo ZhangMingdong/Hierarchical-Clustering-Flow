@@ -1,0 +1,137 @@
+{
+	"acronym": "SEPLAG",
+  	"children_length": 13,
+  	"children": [
+		{"acronym": "GAB", "children_length": 0},
+		{"acronym": "AUS", "children_length": 0},
+    	{"acronym": "AJA", "children_length": 0},
+    	{"acronym": "AGEI", "children_length": 0},
+    	{"acronym": "AAD", "children_length": 0},
+    	{"acronym": "ASCOM", "children_length": 0},
+    	{
+      		"acronym": "SPLOR",
+      		"children_length": 3,
+      		"children": [
+				{
+	  				"acronym": "SCPPO",
+	  				"children_length": 3,
+	  				"children": [
+	    				{"acronym": "DCGF", "children_length": 0},
+	    				{"acronym": "DCPPN", "children_length": 0},
+	    				{"acronym": "DCMEFO", "children_length": 0}
+	  				]
+				},
+				{
+	  				"acronym": "SCCG",
+	  				"children_length": 3,
+	  				"children": [
+	    				{"acronym": "DCAP", "children_length": 0},
+	    				{"acronym": "DCCAG", "children_length": 0},
+	    				{"acronym": "DCAC", "children_length": 0}
+	  				]
+				},
+				{
+	  				"acronym": "SCRLP",
+	  				"children_length": 3,
+	  				"children": [
+	    				{"acronym": "DCGIM", "children_length": 0},
+	    				{"acronym": "DCAL", "children_length": 0},
+	    				{"acronym": "DCLC", "children_length": 0}
+	  				]
+				}
+      		]
+    	},
+    	{
+      		"acronym": "SUGES",
+      		"children_length": 5,
+      		"children": [
+				{"acronym": "AGI", "children_length": 0},
+				{"acronym": "AMG", "children_length": 0},
+				{"acronym": "NCGERAES", "children_length": 0},
+				{"acronym": "NCIM", "children_length": 0},
+				{"acronym": "NCPO", "children_length": 0}
+      		]
+    	},
+    	{
+      		"acronym": "SUGESP",
+      		"children_length": 6,
+      		"children": [
+				{
+	  				"acronym": "SCAP", 
+	  				"children_length": 5,
+	  				"children": [
+	    				{"acronym": "DCCTA", "children_length": 0},
+	    				{"acronym": "DCPPP", "children_length": 0},
+	    				{"acronym": "DCSPP", "children_length": 0},
+	    				{"acronym": "DCGDS", "children_length": 0},
+	    				{"acronym": "DCOP", "children_length": 0}
+	  				]
+				},
+				{
+	  				"acronym": "SCPMSO", 
+	  				"children_length": 3,
+	  				"children": [
+	    				{"acronym": "DCPM", "children_length": 0},
+	    				{"acronym": "DCSO", "children_length": 0},
+	    				{"acronym": "DCSTA", "children_length": 0}	  
+	  				]
+				},
+				{
+	  				"acronym": "SCPRH", 
+	  				"children_length": 5,
+	  				"children": [
+	    				{"acronym": "DCPR", "children_length": 0},
+	    				{"acronym": "DCCR", "children_length": 0},
+	    				{"acronym": "DCGD", "children_length": 0},
+	    				{"acronym": "DCGDES", "children_length": 0},
+	    				{"acronym": "DCGCFC", "children_length": 0}
+	  				]
+				},
+				{"acronym": "NGCEPPGG", "children_length": 0},
+				{"acronym": "NEADP", "children_length": 0},
+				{"acronym": "ARS", "children_length": 0}
+      		]
+    	},
+    	{
+      		"acronym": "SCGE", 
+      		"children_length": 4,
+      		"children": [
+				{"acronym": "DCGCAE", "children_length": 0},
+				{"acronym": "DCGRT", "children_length": 0},
+				{"acronym": "DCGTIC", "children_length": 0},
+				{"acronym": "DCPOP", "children_length": 0}
+      		]
+    	},
+    	{
+      		"acronym": "SPGF", 
+      		"children_length": 5,
+      		"children": [
+				{"acronym": "DPO", "children_length": 0},
+				{"acronym": "DCF", "children_length": 0},
+				{"acronym": "DRH", "children_length": 0},
+				{
+	  				"acronym": "DLA", 
+	  				"children_length": 1,
+	  				"children": [
+	    				{"acronym": "GTI", "children_length": 0}
+	  				]
+				},
+				{"acronym": "DPC", "children_length": 0}
+      		]
+    	},
+    	{
+      		"acronym": "CEGUAI", 
+      		"children_length": 1,
+      		"children": [
+				{"acronym": "UAI's", "children_length": 0}
+      		]
+    	},
+    	{
+      		"acronym": "SCR", 
+      		"children_length": 1,
+      		"children": [
+				{"acronym": "CR's", "children_length": 0}
+      		]
+    	}
+  	]
+}

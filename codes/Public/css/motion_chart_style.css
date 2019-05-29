@@ -1,0 +1,77 @@
+
+motion-chart {
+    width: 100%;
+    height: 100%;
+    display: block;
+    z-index: 0;
+    overflow: hidden;
+    font-size: 10px;
+}
+
+motion-chart .phrase {
+    fill: whitesmoke;
+    stroke-width: 1;
+    fill-opacity:.01;
+}
+
+motion-chart .tactics {
+    fill: white;
+    stroke-width: 1;
+    stroke:black;
+}
+motion-chart .node_left{
+     fill: red;
+     opacity: .5;
+ }
+
+motion-chart .node_right{
+    fill: blue;
+    opacity: .5;
+}
+motion-chart .node_step_1{
+    fill: red;
+    opacity: .5;
+}
+motion-chart .node_step_2{
+    fill: blue;
+    opacity: .5;
+}
+
+motion-chart .tactics.simultaneous{
+    fill: gray;
+    opacity:.8;
+}
+
+motion-chart .phrase.focused {
+    stroke-width: 2;
+    fill: gold;
+}
+
+motion-chart .phraseText {
+    font-size: 18;
+    text-anchor: left;
+    font-family: monospace;
+}
+
+motion-chart .node_pos_text_1 {
+    font-size: 12;
+    text-anchor: right;
+    font-family: monospace;
+    stroke:black
+}
+motion-chart .node_pos_text_2 {
+    font-size: 10;
+    text-anchor: left;
+    font-family: monospace;
+    stroke:black
+}
+
+
+motion-chart .node_pos_1 {
+    fill:red;
+    stroke:none;
+}
+motion-chart .node_pos_2 {
+    fill:blue;
+    stroke:none;
+}

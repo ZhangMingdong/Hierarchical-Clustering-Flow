@@ -1,0 +1,85 @@
+<!--
+    last designed 2016/09/02
+    for analysis
+-->
+<html>
+<head>
+    <title>Fencing Vis</title>
+    <script src="lib/angular.min.js"></script>
+    <script src="lib/angular-route.min.js"></script>
+    <script src="lib/d3.v4.js" charset="utf-8"></script>
+    <script src="js/fencingCtrl.js"></script>
+    <script src="js/fencingGameVis.js"></script>
+    <script src="js/motionChart.js"></script>
+    <script src="js/phraseChart.js"></script>
+    <script src="js/tacticFlowChart.js"></script>
+    <link rel="stylesheet" type="text/css" href="CSS/global.css">
+    <link rel="stylesheet" type="text/css" href="CSS/motion_chart_style.css">
+    <link rel="stylesheet" type="text/css" href="CSS/phrase_chart_style.css">
+    <link rel="stylesheet" type="text/css" href="CSS/tactic_flow_chart_style.css">
+    <link rel="stylesheet" type="text/css" href="CSS/fencing_game_vis_style.css">
+</head>
+
+<body ng-app="myApp" ng-controller="FencingCtrl">
+    <!-- motion view -->
+    <div style="float:left;width:30%;height:99%;overflow:auto;margin:2px">
+        <motion-chart style="float:left;overflow:auto" data="fencingData"></motion-chart>
+    </div>
+    <!-- right of motion view -->
+    <div style="float:left;width:69%;height:99%;overflow:auto;margin:2px">
+        <!-- top of bout view -->
+        <div style="float:left;width:99%;height:74%;overflow:auto;margin:2px">
+            <!-- flow & phrase -->
+            <div style="float:left;width:80%;height:99%;overflow:auto;margin:2px">
+                <div style="float:left;width:99%;height:80%;overflow:auto;margin:2px;">
+                    <tactic-flow-chart data="fencingData" style="height:100%;width:100%"></tactic-flow-chart>
+                </div>
+                <div style="float:left;width:99%;height:18%;overflow:auto;margin:2px;">
+                    <phrase-chart data="fencingData" style="height:100%;width:100%"></phrase-chart>
+                </div>
+
+            </div>
+            <!-- controls -->
+            <div style="float:left;width:19%;height:99%;overflow:auto;margin:2px">
+                <fieldset>
+                    <legend><b>Select Bout</b></legend>
+                    <select ng-model="selectedMatch" ng-options="match for match in matchList" style="width:100%"></select>
+                </fieldset>
+
+                <fieldset>
+                    <legend><b>Phrase Filters</b></legend>
+                    <input type="checkbox" ng-model="fencingData.B"><b>No Score</b><br>
+                    <input type="checkbox" ng-model="fencingData.P1"><b>Player 1 Score</b><br>
+                    <input type="checkbox" ng-model="fencingData.P2"><b>Player 2 Score</b><br>
+                    <br>
+                    <b>Set Filter</b>
+                    <input style="width:50%" ng-model="fencingData.filter_value" type="range" min="1" max="500" class="slider">
+                    <p><b>Frame Filter:</b> {{fencingData.filter_value}}</p>
+                    <p><b>Filtered Phrase:</b> {{fencingData.filtered_phrase}}</p>
+                 </fieldset>
+
+                <fieldset>
+                    <legend><b>Tactics Flow Style</b></legend>
+                    <input type="checkbox" ng-model="fencingData.Sum_flow"><b>Sum Flow</b><br>
+                    <input type="checkbox" ng-model="fencingData.Switch_pos"><b>Switch Position</b><br>
+                    <input type="checkbox" ng-model="fencingData.Show_tube"><b>Show Flow Tube</b><br>
+                    <input type="checkbox" ng-model="fencingData.Show_individual"><b>Show Individual Flow</b><br>
+                    <input type="checkbox" ng-model="fencingData.Show_node_label"><b>Show Nodes Labels</b><br>
+                    <input type="checkbox" ng-model="fencingData.orthogonal"><b>Orthogonal Layout</b><br>
+                    <input type="checkbox" ng-model="fencingData.asymmetric"><b>Asymmetric Layout</b><br>
+                    <input type="checkbox" ng-model="fencingData.Show_motions"><b>Show Motions</b><br>
+                    <input type="checkbox" ng-model="fencingData.Sort_phrases"><b>Sort Phrases</b><br>
+                    <input type="checkbox" ng-model="fencingData.Show_all_motions"><b>All Motions</b><br>
+                </fieldset>
+            </div>
+        </div>
+        <!-- bout view -->
+        <div style="float:left;width:99%;height:25%;overflow:auto;margin:2px">
+            <fencing-game-vis data="fencingData" selected-point="selectedNode"></fencing-game-vis>
+        </div>
+    </div>
+
+</body>
+</html>
+
+

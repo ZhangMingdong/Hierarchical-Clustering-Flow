@@ -1,0 +1,28 @@
+
+/* basic tree style */
+tactics-chart {
+    width: 100%;
+    height: 400px;
+    display: block;
+    z-index: 0;
+    overflow: hidden;
+    font-size: 10px;
+}
+
+
+tactics-chart rect {
+    stroke-width: 1;
+}
+
+tactics-chart rect:hover {
+    stroke-width: 3;
+}
+/*
+.bar {
+    fill: steelblue;
+}
+
+.bar:hover {
+    fill: brown;
+}
+*/

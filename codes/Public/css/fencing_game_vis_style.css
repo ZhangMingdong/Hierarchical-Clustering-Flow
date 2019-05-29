@@ -1,0 +1,52 @@
+
+
+
+/* basic tree style */
+fencing-game-vis {
+    width: 100%;
+    height:100%;
+    display: block;
+    z-index: 0;
+    overflow: hidden;
+    font-size: 10px;
+}
+fencing-game-vis .info{
+    font-size: 20px;
+}
+
+fencing-game-vis rect {
+    stroke-width: 1;
+}
+fencing-game-vis rect.focused {
+    stroke-width: 2;
+}
+
+
+fencing-game-vis .event1, .event2 {
+    fill: yellow;
+    fill-opacity: 0.1;
+}
+
+fencing-game-vis .phrase {
+    fill: yellow;
+    fill-opacity: 0.1;
+}
+
+fencing-game-vis .phrasebg {
+    fill: gray;
+    fill-opacity: 0.2;
+    stroke:none;
+}
+
+
+fencing-game-vis .phrasebg.focused {
+    fill: gold;
+}
+
+fencing-game-vis .grid {
+    fill: gray;
+    fill-opacity: 0.5;
+    stroke:none;
+}
+
+
